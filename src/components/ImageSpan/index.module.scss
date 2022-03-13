@@ -1,0 +1,23 @@
+.image_span {
+  background: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000");
+  //background: url("https://images.pexels.com/photos/1428169/pexels-photo-1428169.jpeg?auto=compress&cs=tinysrgb&h=1000&w=1260");
+
+  display: block;
+  position: absolute;
+  width: 8vw;
+  height: 8vw;
+  border-radius: 35%;
+  filter: blur(4px) contrast(100%);
+  background-size: cover;
+  background-attachment: fixed;
+  pointer-events: none;
+
+  animation: sway 5s linear;
+
+  @keyframes sway {
+    to {
+      background-position: 10%;
+      //transform: translate3d(20%, 20%, 0);
+    }
+  }
+}

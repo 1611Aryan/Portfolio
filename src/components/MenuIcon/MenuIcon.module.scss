@@ -1,0 +1,12 @@
+.menuIcon {
+  position: fixed;
+  top: var(--padding);
+  right: var(--padding);
+
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+
+  cursor: pointer;
+  z-index: 999;
+}

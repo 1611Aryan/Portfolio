@@ -1,0 +1,45 @@
+.menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: yellow;
+  z-index: 99;
+
+  padding: calc(var(--padding) / 4) var(--padding);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      li {
+        font-size: 1.25rem;
+        cursor: pointer;
+        // &:nth-child(1) {
+        //   &:hover {
+        //     cursor: url("./../../public/static/media/cursors/about.png"),
+        //       pointer;
+        //   }
+        // }
+        // &:nth-child(2) {
+        //   &:hover {
+        //     cursor: url("./../../public/static/media/cursors/project.png"),
+        //       pointer;
+        //   }
+        // }
+        // &:nth-child(3) {
+        //   &:hover {
+        //     cursor: url("./../../public/static/media/cursors/contact.png"),
+        //       pointer;
+        //   }
+        // }
+      }
+    }
+  }
+}
