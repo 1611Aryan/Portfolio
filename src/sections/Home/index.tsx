@@ -1,5 +1,5 @@
 import styles from "./index.module.scss"
-import { useEffect, useState } from "react"
+import { TouchEventHandler, useEffect, useState } from "react"
 import ImageSpan from "../../components/ImageSpan"
 import HomeText from "../../components/HomeText"
 
@@ -28,6 +28,18 @@ const Home = () => {
     ])
   }
 
+  const touchHandler = (e: React.TouchEvent<HTMLElement>) => {
+    const { clientX: x, clientY: y } = e.touches[0]
+    setSpanArray(spanArray => [
+      ...spanArray,
+      {
+        x,
+        y,
+        time: Date.now(),
+      },
+    ])
+  }
+
   const animate = () => {
     setSpanArray(spanArray =>
       spanArray.filter(ele => Date.now() - ele.time < eraseTime)
@@ -46,7 +58,11 @@ const Home = () => {
   }, [])
 
   return (
-    <section className={styles.section} onMouseMove={mouseMoveHandler}>
+    <section
+      className={styles.section}
+      onMouseMove={mouseMoveHandler}
+      onTouchMove={touchHandler}
+    >
       {spanArray.map(ele => (
         <ImageSpan top={ele.y} left={ele.x} key={ele.time} />
       ))}

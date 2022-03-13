@@ -6,13 +6,11 @@ import styles from "./MenuIcon.module.scss"
 const MenuIcon = () => {
   const { menuVis, setMenuVis } = useMenu()
 
+  const clickHandler = () => setMenuVis(menuVis => !menuVis)
+
   return (
-    <button className={styles.menuIcon}>
-      {!menuVis ? (
-        <FaHamburger onClick={() => setMenuVis(true)} />
-      ) : (
-        <FaTimes onClick={() => setMenuVis(false)} />
-      )}
+    <button className={styles.menuIcon} onClick={clickHandler}>
+      {!menuVis ? <FaHamburger /> : <FaTimes />}
     </button>
   )
 }

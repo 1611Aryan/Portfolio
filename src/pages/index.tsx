@@ -6,8 +6,6 @@ import Home from "../sections/Home"
 import { useMenu } from "../store/providers/menuProvider"
 
 const Index: NextPage = () => {
-  const { menuVis } = useMenu()
-
   return (
     <div>
       <Head>
@@ -16,7 +14,7 @@ const Index: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MenuIcon />
-      {menuVis && <Menu />}
+      <Menu />
       <Home />
     </div>
   )
