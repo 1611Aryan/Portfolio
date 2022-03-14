@@ -1,0 +1,5 @@
+@import "./../../styles/mixins";
+
+.canvas {
+  @include absolute-fit;
+}

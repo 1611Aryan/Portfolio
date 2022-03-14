@@ -1,4 +1,5 @@
 import { FaHamburger, FaTimes } from "react-icons/fa"
+import { HiMenu } from "react-icons/hi"
 import { useMenu } from "../../store/providers/menuProvider"
 
 import styles from "./MenuIcon.module.scss"
@@ -10,7 +11,7 @@ const MenuIcon = () => {
 
   return (
     <button className={styles.menuIcon} onClick={clickHandler}>
-      {!menuVis ? <FaHamburger /> : <FaTimes />}
+      {!menuVis ? <HiMenu /> : <FaTimes />}
     </button>
   )
 }

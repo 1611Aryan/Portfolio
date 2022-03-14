@@ -1,0 +1,21 @@
+@import "./../../styles/mixins";
+
+.aboutBgText {
+  @include absolute-fit;
+  pointer-events: none;
+  h4 {
+    height: 100%;
+    color: #ca0000;
+    font-family: var(--fontSans);
+    font-size: 19rem;
+    font-weight: 700;
+    width: min-content;
+    text-align: center;
+    transform: translate(-2%);
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    mix-blend-mode: luminosity;
+  }
+}

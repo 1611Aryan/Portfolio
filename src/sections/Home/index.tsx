@@ -1,5 +1,5 @@
 import styles from "./index.module.scss"
-import { TouchEventHandler, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import ImageSpan from "../../components/ImageSpan"
 import HomeText from "../../components/HomeText"
 
@@ -13,11 +13,11 @@ const Home = () => {
   const [spanArray, setSpanArray] = useState<spanI[]>([])
   const [animationFrame, setAnimationFrame] = useState<number>()
   const eraseTime = 5_000
-  const fps = 60
+  const fps = 30
   const mouseMoveHandler = (
     e: React.MouseEvent<HTMLVideoElement, MouseEvent>
   ) => {
-    const { clientX: x, clientY: y } = e
+    const { pageX: x, pageY: y } = e
     setSpanArray(spanArray => [
       ...spanArray,
       {
