@@ -4,8 +4,8 @@
 
   display: block;
   position: absolute;
-  width: 10vw;
-  height: 10vw;
+  width: 15vw;
+  height: 15vw;
   border-radius: 35%;
   border-radius: 47% 53% 76% 24% / 70% 37% 63% 30%;
   filter: blur(4px) contrast(100%);
@@ -15,7 +15,7 @@
 
   will-change: background;
 
-  animation: sway 5s linear;
+  animation: sway 3s linear;
 
   @keyframes sway {
     to {

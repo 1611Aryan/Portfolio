@@ -4,8 +4,14 @@ const AboutBgText = () => {
   return (
     <div className={styles.aboutBgText}>
       <h4>
-        <span>FULL STACK </span>
-        <span>DEVELOPER</span>
+        <div>
+          <span>FULL STACK</span>
+          <span className={styles.shadow}>FULL STACK</span>
+        </div>
+        <div>
+          <span>DEVELOPER</span>
+          <span className={styles.shadow}>DEVELOPER</span>
+        </div>
       </h4>
     </div>
   )

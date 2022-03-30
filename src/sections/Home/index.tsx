@@ -12,41 +12,52 @@ type spanI = {
 const Home = () => {
   const [spanArray, setSpanArray] = useState<spanI[]>([])
   const [animationFrame, setAnimationFrame] = useState<number>()
-  const eraseTime = 5_000
-  const fps = 30
+
+  const controls = {
+    eraseTime: 750,
+    fps: 30,
+    limit: 20,
+  }
+
   const mouseMoveHandler = (
     e: React.MouseEvent<HTMLVideoElement, MouseEvent>
   ) => {
     const { pageX: x, pageY: y } = e
-    setSpanArray(spanArray => [
-      ...spanArray,
-      {
-        x,
-        y,
-        time: Date.now(),
-      },
-    ])
+    setSpanArray(spanArray => {
+      if (spanArray.length > controls.limit) spanArray.shift()
+      return [
+        ...spanArray,
+        {
+          x,
+          y,
+          time: Date.now(),
+        },
+      ]
+    })
   }
 
   const touchHandler = (e: React.TouchEvent<HTMLElement>) => {
     const { clientX: x, clientY: y } = e.touches[0]
-    setSpanArray(spanArray => [
-      ...spanArray,
-      {
-        x,
-        y,
-        time: Date.now(),
-      },
-    ])
+    setSpanArray(spanArray => {
+      if (spanArray.length > controls.limit) spanArray.pop()
+      return [
+        ...spanArray,
+        {
+          x,
+          y,
+          time: Date.now(),
+        },
+      ]
+    })
   }
 
   const animate = () => {
     setSpanArray(spanArray =>
-      spanArray.filter(ele => Date.now() - ele.time < eraseTime)
+      spanArray.filter(ele => Date.now() - ele.time < controls.eraseTime)
     )
     setTimeout(() => {
       setAnimationFrame(requestAnimationFrame(animate))
-    }, 1000 / fps)
+    }, 1000 / controls.fps)
   }
 
   useEffect(() => {
