@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from "next/document"
+import { Head, Html, Main, NextScript } from "next/document"
 
 const Document = () => {
   return (
@@ -11,7 +11,7 @@ const Document = () => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@200;400;500;600;800;900&family=Signika:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@200;400;500;600;800;900&family=Signika:wght@300;400;500;600;700&family=Rye&display=swap"
           rel="stylesheet"
         />
       </Head>

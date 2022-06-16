@@ -1,14 +1,20 @@
-import { useEffect, useRef, useCallback } from "react"
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react"
 import styles from "./Canvas.module.scss"
 
 const Canvas = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const radius = 150
-  const currentPos = useRef<{ x: number; y: number }>({
+  const canvasRef = useRef<HTMLCanvasElement>(null),
+    currentPos = useRef<{ x: number; y: number }>({
       x: 0,
       y: 0,
-    }),
-    running = useRef<boolean>(true)
+    })
+
+  let radius = 0
+  let growing = false
+
+  useLayoutEffect(() => {
+    currentPos.current.x = window.innerWidth / 2
+    currentPos.current.y = window.innerHeight / 2
+  }, [])
 
   const resize = (canvas: HTMLCanvasElement) => {
     canvas.width = window.innerWidth
@@ -26,8 +32,11 @@ const Canvas = () => {
   }
 
   const animate = useCallback((ctx: CanvasRenderingContext2D | null) => {
-    if (running.current) {
-      ctx?.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    if (ctx) {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
+      console.log(growing)
+      if (growing) grow()
+      else shrink()
       draw(ctx, currentPos.current.x, currentPos.current.y)
     }
     requestAnimationFrame(() => animate(ctx))
@@ -38,14 +47,27 @@ const Canvas = () => {
     currentPos.current.y = e.pageY - window.innerHeight
   }
 
+  const grow = () => {
+    if (radius < 125) radius += 10
+    radius = Math.min(125, radius)
+    return
+  }
+
+  const shrink = () => {
+    if (radius > 0) radius -= 20
+    radius = Math.max(0, radius)
+    return
+  }
+
   useEffect(() => {
     const canvas = canvasRef.current
-    currentPos.current.x = window.innerWidth / 2
-    currentPos.current.y = window.innerHeight / 2
 
     if (canvas) {
       resize(canvas)
       window.onresize = () => resize(canvas)
+      canvas.onmouseenter = () => (growing = true)
+      canvas.onmouseleave = () => (growing = false)
+
       const ctx = canvas.getContext("2d")
       animate(ctx)
     }
@@ -58,8 +80,6 @@ const Canvas = () => {
   return (
     <canvas
       ref={canvasRef}
-      onMouseEnter={() => (running.current = true)}
-      onMouseLeave={() => (running.current = false)}
       onMouseMove={mouseMoveHandler}
       className={styles.canvas}
     ></canvas>

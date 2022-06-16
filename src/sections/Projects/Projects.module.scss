@@ -1,0 +1,179 @@
+.projects {
+  --frame: #835435;
+  --frame: #440bd4;
+  --base: linear-gradient(90deg, #030303, #1f1f1f);
+  --radius: 20px;
+  --screenSize: 0.75;
+  --silver: linear-gradient(101.75deg, #c4cace 0%, #b3b6b5 100%);
+  --grill: #111111;
+  --fadedColor: #5e5e5e;
+
+  --boltSize: 1rem;
+  --boltBG: #5e5e5e;
+
+  --internalPadding: calc(var(--padding) / 1.2);
+
+  width: 100%;
+  min-height: 100vh;
+  // background: #fd0984;
+  position: relative;
+  overflow: hidden;
+
+  background: var(--frame);
+  padding: calc(var(--padding) / 3);
+
+  display: grid;
+  place-items: center;
+
+  .base {
+    background: var(--base);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    border: 10px solid #835435;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: calc(var(--internalPadding) / 2);
+    gap: var(--internalPadding);
+
+    .screen {
+      flex: var(--screenSize);
+      height: 100%;
+      background: #fff;
+      border-radius: var(--radius);
+    }
+    .rightPanel {
+      flex: calc(1 - var(--screenSize));
+      height: 100%;
+      //  background: red;
+      gap: calc(var(--internalPadding) / 3);
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .heading {
+        display: grid;
+        place-items: center;
+        position: relative;
+
+        width: 100%;
+        padding: calc(var(--padding) / 1.5) var(--padding);
+        border-radius: 4px;
+
+        outline: 2px solid var(--fadedColor);
+        outline-offset: -10px;
+
+        background: var(--silver);
+        color: var(--fadedColor);
+
+        font-family: var(--fontCursive);
+        font-size: 2rem;
+
+        .bolt {
+          position: absolute;
+
+          width: var(--boltSize);
+          height: var(--boltSize);
+
+          border-radius: 50%;
+
+          background: var(--boltBG);
+
+          display: grid;
+          place-items: center;
+
+          font-size: 1rem;
+          color: #eee;
+        }
+
+        .left {
+          top: 10px;
+          left: 10px;
+          transform: translate(-50%, -50%);
+        }
+        .right {
+          bottom: 10px;
+          right: 10px;
+          transform: translate(50%, 50%);
+        }
+      }
+      .speakerGrill {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 5px;
+
+        span {
+          width: 100%;
+          flex: 1;
+          background: var(--silver);
+          border-radius: 10px;
+        }
+      }
+
+      .controls {
+        width: 100%;
+        padding: calc(var(--internalPadding) / 3) 0;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .dial {
+          background: #d9d9d9;
+          border-radius: 50%;
+          aspect-ratio: 1/1;
+
+          display: grid;
+          place-items: center;
+
+          .innerDial {
+            width: 75%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background: #9b9b9b;
+
+            position: relative;
+            overflow: hidden;
+
+            .switch {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: #fff;
+              width: max(12%, 15px);
+              height: 105%;
+              padding-top: 5%;
+              color: var(--fadedColor);
+              font-size: 1rem;
+
+              text-align: center;
+
+              cursor: pointer;
+            }
+          }
+        }
+
+        .large {
+          height: 65%;
+          align-self: flex-start;
+        }
+
+        .small {
+          height: 35%;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}

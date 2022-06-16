@@ -4,6 +4,7 @@ import Menu from "../components/Menu"
 import MenuIcon from "../components/MenuIcon"
 import About from "../sections/About"
 import Home from "../sections/Home"
+import Projects from "../sections/Projects"
 
 const Index: NextPage = () => {
   return (
@@ -12,7 +13,7 @@ const Index: NextPage = () => {
         <title>Aryan • Portfolio</title>
         <meta
           name="description"
-          content="Web Developer Portfolio Website ~ Aryan Gupta"
+          content="Full Stack Engineer Portfolio ~ Aryan Gupta"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -20,6 +21,7 @@ const Index: NextPage = () => {
       <Menu />
       <Home />
       <About />
+      <Projects />
     </div>
   )
 }

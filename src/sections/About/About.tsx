@@ -7,7 +7,7 @@ const About = () => {
     <section className={styles.about}>
       <Canvas />
       <AboutBgText />
-      <div className={styles.transition}></div>
+      {/* <div className={styles.transition}></div> */}
     </section>
   )
 }

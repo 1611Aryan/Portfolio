@@ -1,11 +1,13 @@
 .image_span {
+  --size: 30vmin;
+
   background: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000");
   //background: url("https://images.pexels.com/photos/1428169/pexels-photo-1428169.jpeg?auto=compress&cs=tinysrgb&h=1000&w=1260");
 
   display: block;
   position: absolute;
-  width: 15vw;
-  height: 15vw;
+  width: var(--size);
+  height: var(--size);
   border-radius: 35%;
   border-radius: 47% 53% 76% 24% / 70% 37% 63% 30%;
   filter: blur(4px) contrast(100%);
