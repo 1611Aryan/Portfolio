@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import styles from "./Canvas.module.scss"
 
 const Canvas = () => {
@@ -11,7 +11,7 @@ const Canvas = () => {
   let radius = 0
   let growing = false
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     currentPos.current.x = window.innerWidth / 2
     currentPos.current.y = window.innerHeight / 2
   }, [])

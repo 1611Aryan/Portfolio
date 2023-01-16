@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState, useEffect } from "react"
+import React, { createContext, useContext, useState } from "react"
 
 export type menu = {
   menuVis: boolean

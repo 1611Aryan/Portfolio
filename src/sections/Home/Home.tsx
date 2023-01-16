@@ -1,7 +1,7 @@
+import styled from "@emotion/styled"
 import { useEffect, useState } from "react"
 import HomeText from "../../components/HomeText"
 import ImageSpan from "../../components/ImageSpan"
-import styles from "./index.module.scss"
 
 type spanI = {
   x: number
@@ -69,17 +69,22 @@ const Home = () => {
   }, [])
 
   return (
-    <section
-      className={styles.section}
-      onMouseMove={mouseMoveHandler}
-      onTouchMove={touchHandler}
-    >
+    <StyledSection onMouseMove={mouseMoveHandler} onTouchMove={touchHandler}>
       {spanArray.map(ele => (
         <ImageSpan top={ele.y} left={ele.x} key={ele.time} />
       ))}
       <HomeText />
-    </section>
+    </StyledSection>
   )
 }
+
+const StyledSection = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  padding: var(--padding);
+`
 
 export default Home

@@ -1,15 +1,22 @@
+import styled from "@emotion/styled"
 import AboutBgText from "../../components/AboutBgText"
 import Canvas from "../../components/Canvas"
-import styles from "./About.module.scss"
 
 const About = () => {
   return (
-    <section className={styles.about}>
+    <StyledSection>
       <Canvas />
       <AboutBgText />
-      {/* <div className={styles.transition}></div> */}
-    </section>
+    </StyledSection>
   )
 }
+
+const StyledSection = styled.section`
+  width: 100%;
+  min-height: 100vh;
+  background: #fd0984;
+  position: relative;
+  overflow: hidden;
+`
 
 export default About
