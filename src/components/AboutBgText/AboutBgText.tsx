@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+import styled from '@emotion/styled';
 
 const AboutBgText = () => {
   return (
@@ -14,8 +14,8 @@ const AboutBgText = () => {
         </div>
       </h4>
     </StyledDiv>
-  )
-}
+  );
+};
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -52,6 +52,6 @@ const StyledDiv = styled.div`
       color: #31ff0f;
     }
   }
-`
+`;
 
-export default AboutBgText
+export default AboutBgText;
